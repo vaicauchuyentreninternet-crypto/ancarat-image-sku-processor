@@ -1,0 +1,38 @@
+ANCARAT – IMAGE SKU PROCESSOR V3
+================================
+
+CHẠY TRÊN WINDOWS
+1. Cài Python 3.10+ (nếu chưa có). Khi cài, chọn "Add Python to PATH".
+2. Giải nén toàn bộ file ZIP vào một thư mục trên máy.
+3. Nhấp đúp CHAY_TREN_WINDOWS.bat.
+   Lần đầu cần kết nối Internet để cài OpenCV và pyzbar nếu máy chưa có.
+4. Trình duyệt thường tự mở. Nếu chưa, vào http://127.0.0.1:5050
+5. Nhập đường dẫn nguồn, đường dẫn đích. Giữ "AMI" trong ô tiền tố.
+6. Tích chọn "Quét QR nâng cao" (mặc định bật) rồi bấm BẮT ĐẦU XỬ LÝ.
+
+KẾT QUẢ
+- Ảnh được sao chép thẳng vào thư mục đích: SKU (1).jpg, SKU (2).jpg...
+- File du_lieu_qr.txt lưu một dòng mỗi nhóm thành công: SKU|NOI_DUNG_QR
+- File ẩn .sku_processor_manifest.json dùng để tránh copy trùng khi chạy lại;
+  không xóa file này nếu còn tiếp tục xử lý vào cùng thư mục đích.
+- Ảnh nguồn không bị chỉnh sửa, xóa, di chuyển hay nén lại.
+
+THAY ĐỔI TRONG V3
+- AMI (và các tiền tố tùy chỉnh) không được nhận làm SKU từ tên file.
+- Quét QR nâng cao khi quét thường thất bại: tự xoay 90°/180°/270°,
+  sửa phối cảnh từ bốn góc QR, tăng tương phản, thử bộ giải mã ZBar.
+- Đọc thành công ảnh kiểm thử AMI07927.JPG: SKU G75D1ZTD1680009.
+- Báo phân biệt lỗi không thấy QR, thấy QR nhưng không đọc được,
+  hoặc đọc được QR nhưng không có SKU hợp lệ.
+
+LƯU Ý
+- Nếu V1/V2 từng nhận sai tên ảnh AMI thành SKU và đã xuất nhầm,
+  hãy chọn thư mục đích mới cho lần xử lý lại. Không ghi đè đầu ra cũ.
+- Quét QR nâng cao làm tăng thời gian xử lý với ảnh khó.
+  Tắt ô này nếu nguồn ảnh chỉ có QR rõ nét để tối ưu tốc độ.
+- Không dùng AI, OCR hoặc dịch vụ online; toàn bộ xử lý tại máy tính.
+- Gói mã nguồn gồm app.py và requirements.txt, không cần database.
+
+CHẠY THỦ CÔNG (nếu không dùng .bat)
+python -m pip install -r requirements.txt
+python app.py

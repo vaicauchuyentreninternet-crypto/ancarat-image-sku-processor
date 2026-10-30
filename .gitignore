@@ -1,0 +1,35 @@
+# Python environments, caches and test/build artifacts
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Local editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Processing state and user-generated output
+.sku_processor_manifest.json
+du_lieu_qr.txt
+.sku_tmp_*
+input/
+inputs/
+output/
+outputs/
+data/
+tmp/
+temp/
+*.log
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example

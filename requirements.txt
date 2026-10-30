@@ -1,0 +1,5 @@
+# Runtime dependencies (Python 3.10+)
+# OpenCV uses NumPy for image arrays. ZBar is needed by pyzbar on Linux.
+numpy>=1.26,<3
+opencv-python-headless>=4.9,<5
+pyzbar>=0.1.9,<1
